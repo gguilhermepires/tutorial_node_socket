@@ -1,0 +1,11 @@
+﻿Usuario
+login
+POST - http://localhost:3002/usuario/login
+{"email":"teste@gmail.com","senha":"123"}
+
+Temperatura
+    pegar as 10 últimas temperaturas
+     GET   http://localhost:3002/temperatura/getUltimaLeitura
+
+
+    

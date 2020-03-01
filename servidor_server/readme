@@ -1,0 +1,49 @@
+//npm install --save express-validator
+//npm install --save mongoose
+npm install dateformat
+
+Cadastro usuario
+
+ for (var i = 0; i < 100; i++) {            
+            Temperatura.create({
+                valor: Math.random() * 10
+            }).then(e => {
+                console.log(e);
+            }).catch(err => { console.log(err) });
+        }
+        
+
+User.create({
+            email: "admin@mail.com",
+            senha: "123"
+        }).then(e => {
+            console.log(e);
+        }).catch(err => { console.log(err) });
+
+        User.create({
+            email: "teste@mail.com",
+            senha: "123"
+        }).then(e => {
+            console.log(e);
+        }).catch(err => { console.log(err) });
+
+exports.getByID = (req, res, next) => {
+    const userId = req.params.id;
+
+    Usuario.findByPk(userId)
+        .then(u => {
+            res.status(200).json({
+                posts: [{ title: 'First Post', content: u }]
+            });
+        })
+        .catch(err => console.log(err));
+};
+exports.getByEmail = (req, res, next) => {
+    const userEmail = req.params.email;
+    console.log(userEmail);
+    Usuario.findOne({ where: { email: userEmail } }).then(u => {
+        res.status(200).json({
+            posts: [{ title: 'First Post', content: u }]
+        });
+    });
+};
